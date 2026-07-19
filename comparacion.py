@@ -23,6 +23,8 @@ def abrir_informe_comparacion(tickers: list):
             "Dividend Yield": info.get("dividendYield", 0) or 0,
             "ROE": info.get("returnOnEquity", 0) or 0,
             "Precio": info.get("currentPrice", 0),
+            "Ingresos": info.get("totalRevenue", 0),
+            "Beneficio": info.get("netIncomeToCommon", 0),
         }
 
     ventana = tk.Toplevel()
@@ -32,7 +34,7 @@ def abrir_informe_comparacion(tickers: list):
     pestanas = ttk.Notebook(ventana)
     pestanas.pack(fill="both", expand=True)
 
-    metricas = ["Capitalización", "P/E", "EPS", "Dividend Yield", "ROE", "Precio"]
+    metricas = ["Capitalización", "P/E", "EPS", "Dividend Yield", "ROE", "Precio", "Ingresos", "Beneficio"]
     for metrica in metricas:
         tab = ttk.Frame(pestanas)
         pestanas.add(tab, text=metrica)
