@@ -1,14 +1,18 @@
 """
-Informe 8: Comparación de hasta 5 empresas.
+Informe de comparación de empresas.
 """
 import tkinter as tk
 from tkinter import ttk
+
 from utilidades import obtener_ticker_obj
 from graficos import crear_grafico_barras
 
 
 def abrir_informe_comparacion(tickers: list):
-    tickers = tickers[:5]
+    tickers = [t for t in tickers if t][:5]
+    if not tickers:
+        return
+
     datos = {}
     for ticker in tickers:
         info = obtener_ticker_obj(ticker).info
