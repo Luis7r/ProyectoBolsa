@@ -32,7 +32,7 @@ def entrenar_y_predecir(df, nombre_modelo):
     modelo.fit(X_train, y_train)
     predicciones = modelo.predict(X_test)
 
-    rmse = mean_squared_error(y_test, predicciones, squared=False)
+    rmse = np.sqrt(mean_squared_error(y_test, predicciones))
     mae = mean_absolute_error(y_test, predicciones)
 
     return y_test.values, predicciones, rmse, mae
